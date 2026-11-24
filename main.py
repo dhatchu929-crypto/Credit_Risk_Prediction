@@ -79,7 +79,7 @@ print("New Dataset Shape:", df.shape)
 df = pd.read_csv("data/sample_credit_risk_india.csv")
 
 # Separate input and output
-X = df.drop("loan_status", axis=1)
+X = df.drop(["loan_status","applicant_id"], axis=1)
 
 y = df["loan_status"].map({
     "Non-Default": 0,
@@ -280,3 +280,9 @@ plt.savefig("outputs/roc_curve.png")
 plt.show()
 
 print("ROC Curve Saved!")
+import joblib
+
+best_model = rf_model
+joblib.dump(best_model, "outputs/credit_risk_model.pkl")
+
+print("Best Model Saved Successfully!")
