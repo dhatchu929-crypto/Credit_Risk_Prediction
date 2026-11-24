@@ -1,2 +1,15 @@
+
+[project]
+name = "credit-risk-prediction"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "joblib"
+]
+
 [tool.vercel]
 entrypoint = "api.predict:handler"
+
