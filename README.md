@@ -1,7 +1,15 @@
 # Credit Risk Prediction Using Machine Learning
 
 ## Project Overview
-This project predicts loan default risk using Machine Learning algorithms.
+This project predicts loan default risk using Machine Learning techniques. It compares Logistic Regression and Random Forest models to identify applicants who may have difficulty repaying loans.
+
+## Objectives
+- Perform Exploratory Data Analysis (EDA).
+- Handle missing values and outliers.
+- Encode categorical features.
+- Train Logistic Regression and Random Forest models.
+- Compare model performance.
+- Save the best model using Joblib.
 
 ## Technologies Used
 - Python
@@ -13,9 +21,12 @@ This project predicts loan default risk using Machine Learning algorithms.
 - Joblib
 
 ## Dataset
-- File: sample_credit_risk_india.csv
+- File: `sample_credit_risk_india.csv`
 - Records: 600
-- Dataset used: Synthetic practice dataset
+- Target: `loan_status`
+- Classes: Default and Non-Default
+
+**Note:** This is a synthetic practice dataset, not real banking customer data.
 
 ## Machine Learning Models
 1. Logistic Regression
@@ -25,25 +36,35 @@ This project predicts loan default risk using Machine Learning algorithms.
 
 | Model | ROC-AUC | Precision | Recall |
 |---|---:|---:|---:|
-| Logistic Regression | 0.649 | 0.436 | 0.477 |
-| Random Forest | 0.667 | 0.481 | 0.361 |
+| Logistic Regression | 0.6488 | 0.4359 | 0.4722 |
+| Random Forest | 0.6675 | 0.4815 | 0.3611 |
+
+Random Forest achieved the higher ROC-AUC and Precision. However, its Recall is lower, so further improvement is needed.
 
 ## Project Outputs
-- Loan status distribution graph
-- Feature importance graph
-- ROC curve
-- Model comparison CSV
-- Saved ML model
+- `credit_risk_model.pkl` – Saved machine learning model
+- `model_comparison.csv` – Model performance comparison
+- `feature_importance.csv` – Feature importance results
+- `feature_importance.png` – Feature importance chart
+- `loan_status.png` – Loan status distribution
+- `roc_curve.png` – ROC curve
+- `technical_evaluation_memo.md` – Technical evaluation report
 
 ## How to Run
 
-1. Install dependencies:
-   `pip install -r requirements.txt`
+Install the required libraries:
 
-2. Run the project:
-   `python main.py`
+```bash
+pip install -r requirements.txt
+```
+
+Run the project:
+
+```bash
+python main.py
+```
 
 ## Conclusion
-Random Forest achieved the higher ROC-AUC score and was selected as the final model.
+The project successfully compares two machine learning models for credit risk prediction. Random Forest achieved a ROC-AUC score of approximately 0.6675 and was selected as the current best model.
 
-Note: This is an educational project using synthetic data. It is not intended for real loan approval or rejection decisions.
+Further validation using real-world data is required before practical deployment. Predictions should support human review and should not be used for automatic loan rejection.
